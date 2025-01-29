@@ -1,0 +1,35 @@
+﻿@model List<OrderModel>
+@{
+    ViewBag.Title = "ListOrderPage";
+}
+
+<style>
+    .order-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    }
+
+    .order-item strong {
+    color: #333;
+    }
+
+        .order-item .order-id, .order-item .order-weight, .order-item .order-city, .order-item .order-address .order-data {
+    color: #555;
+    }
+</style>
+
+<ul>
+    @for (int i = 0; i < Model.Count; i++) {
+        <li onclick="location.href = '@Url.Action("DetailsOrderPage", "Order", new{orderIndex = i})'">
+            <div class="order-item">
+                <strong>Код заказа:</strong> <span class="order-id">@Model[i].OrderCode</span><br />
+                <strong>Вес:</strong> <span class="order-weight">@Model[i].OrderWeight</span><br />
+                <strong>Город:</strong> <span class="order-city">@Model[i].ReceiverСity</span><br />
+                <strong>Адрес:</strong> <span class="order-address">@Model[i].ReceiverAddress</span><br />
+                <strong>Дата:</strong> <span class="order-data">@Model[i].OrderPickupDate</span><br />
+            </div>
+        </li>
+    }
+</ul>

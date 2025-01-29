@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "CreateOrderPage";
+}
+@model VerstaTestApp.Models.OrderModel
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input, select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    button {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+</style>
+<h1>Создание нового заказа</h1>
+
+<form method="POST" class="Jopa" asp-controller="Order" asp-action="CreateOrder">
+    <div class="form-group">
+        <label for="senderCity">Город отправителя</label>
+        <input type="text" id="senderCity" name="SendersСity" required>
+    </div>
+
+    <div class="form-group">
+        <label for="senderAddress">Адрес отправителя</label>
+        <input type="text" id="senderAddress" name="SendersAddress" required>
+    </div>
+
+    <div class="form-group">
+        <label for="recipientCity">Город получателя</label>
+        <input type="text" id="recipientCity" name="ReceiverСity" required>
+    </div>
+
+    <div class="form-group">
+        <label for="recipientAddress">Адрес получателя</label>
+        <input type="text" id="recipientAddress" name="ReceiverAddress" required>
+    </div>
+
+    <div class="form-group">
+        <label for="weight">Вес груза (кг)</label>
+        <input type="number" id="weight" name="OrderWeight" required min="0">
+    </div>
+
+    <div class="form-group">
+        <label for="pickupDate">Дата забора груза</label>
+        <input type="date" id="pickupDate" name="OrderPickupDate" required>
+    </div>
+
+    <button type="submit">Создать заказ</button>
+</form>
